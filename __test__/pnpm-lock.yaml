@@ -1,0 +1,16 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+overrides:
+  tree-magic-js: link:../../../../AppData/Local/pnpm/global/5/node_modules/tree-magic-js
+
+importers:
+
+  .:
+    dependencies:
+      tree-magic-js:
+        specifier: link:../../../../AppData/Local/pnpm/global/5/node_modules/tree-magic-js
+        version: link:../../../../AppData/Local/pnpm/global/5/node_modules/tree-magic-js

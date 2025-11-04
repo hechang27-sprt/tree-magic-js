@@ -1,10 +1,11 @@
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "outDir": "lib"
-  },
-  "include": ["."],
-  "exclude": ["lib"]
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "outDir": "lib",
+        "rootDir": "."
+    },
+    "include": ["."],
+    "exclude": ["lib"]
 }

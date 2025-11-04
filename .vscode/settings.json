@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.checkOnSave": true,
+    "oxc.enable": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "claudeCodeChat.permissions.yoloMode": false
+}

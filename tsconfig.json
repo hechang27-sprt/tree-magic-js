@@ -1,14 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "strict": true,
-    "moduleResolution": "node",
-    "module": "CommonJS",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["."],
-  "exclude": ["node_modules", "benchmark", "__test__"]
+    "compilerOptions": {
+        "target": "ESNext",
+        "strict": true,
+        "lib": ["ESNext", "ESNext.Iterator"],
+        "moduleResolution": "nodenext",
+        "module": "node20",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "rootDir": "src_ts",
+        "outDir": "dist",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true
+    },
+    "include": ["native", "src_ts"],
+    "exclude": ["node_modules", "benchmark", "__test__", "data"]
 }

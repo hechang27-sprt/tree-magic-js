@@ -1,0 +1,2 @@
+overrides:
+  tree-magic-js: link:../../../../AppData/Local/pnpm/global/5/node_modules/tree-magic-js
