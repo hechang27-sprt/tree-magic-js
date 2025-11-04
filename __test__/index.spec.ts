@@ -3,7 +3,7 @@ import { createReadStream } from "node:fs";
 import fs from "node:fs/promises";
 import path from "crosspath";
 import { buffer } from "node:stream/consumers";
-import { inferFromBuffer } from "tree-magic-js";
+import { inferFromBuffer } from "../dist/index.js";
 
 const baseDir = "data";
 
