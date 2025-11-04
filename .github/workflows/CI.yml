@@ -237,6 +237,8 @@ jobs:
           architecture: ${{ matrix.settings.architecture }}
       - name: Install dependencies
         run: pnpm install
+      - name: Build TypeScript
+        run: pnpm build:ts
       - name: Download artifacts
         uses: actions/download-artifact@v6
         with:
@@ -295,6 +297,8 @@ jobs:
           echo "PNPM_STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
       - name: Install dependencies
         run: pnpm install --force
+      - name: Build TypeScript
+        run: pnpm build:ts
       - name: Download artifacts
         uses: actions/download-artifact@v6
         with:
@@ -332,6 +336,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
+      - name: Build TypeScript
+        run: pnpm build:ts
       - name: Download artifacts
         uses: actions/download-artifact@v6
         with:
