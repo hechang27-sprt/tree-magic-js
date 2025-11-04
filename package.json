@@ -52,9 +52,8 @@
     "scripts": {
         "artifacts": "napi artifacts",
         "build:ts": "tsc",
-        "build:native": "napi build --platform --esm --release --output-dir native",
-        "build": "run-s \"build:native -- {@}\" build:ts",
-        "build:native-debug": "napi build --platform",
+        "build": "napi build --platform --esm --release --output-dir native",
+        "build:debug": "napi build --platform --esm --output-dir native",
         "format": "run-p format:prettier format:rs format:toml",
         "format:prettier": "prettier . -w",
         "format:toml": "taplo format",
