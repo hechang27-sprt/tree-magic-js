@@ -151,14 +151,14 @@ jobs:
               if: matrix.settings.target != 'wasm32-wasip1-threads'
               with:
                   name: bindings-${{ matrix.settings.target }}
-                  path: "*.node"
+                  path: "native/*.node"
                   if-no-files-found: error
             - name: Upload artifact
               uses: actions/upload-artifact@v5
               if: matrix.settings.target == 'wasm32-wasip1-threads'
               with:
                   name: bindings-${{ matrix.settings.target }}
-                  path: "*.wasm"
+                  path: "native/*.wasm"
                   if-no-files-found: error
     build-freebsd:
         runs-on: ubuntu-latest
