@@ -53,7 +53,7 @@
         "artifacts": "napi artifacts",
         "build:ts": "tsc",
         "build:native": "napi build --platform --esm --release --output-dir native",
-        "build": "run-s build:native build:ts",
+        "build": "run-s \"build:native -- {@}\" build:ts",
         "build:native-debug": "napi build --platform",
         "format": "run-p format:prettier format:rs format:toml",
         "format:prettier": "prettier . -w",
