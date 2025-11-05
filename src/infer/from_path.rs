@@ -1,6 +1,6 @@
-use std::path::{ PathBuf };
+use std::path::PathBuf;
 
-use napi::{ JsString, JsStringLatin1, ScopedTask, bindgen_prelude::AsyncTask };
+use napi::{bindgen_prelude::AsyncTask, JsString, JsStringLatin1, ScopedTask};
 use napi_derive::napi;
 use tree_magic_mini::from_filepath;
 
@@ -19,15 +19,25 @@ impl<'env> ScopedTask<'env> for InferFromPath {
     }
 
     #[cfg(not(feature = "napi10"))]
-    fn resolve(&mut self, env: &'env napi::Env, output: Self::Output) -> napi::Result<Self::JsValue> {
+    fn resolve(
+        &mut self,
+        env: &'env napi::Env,
+        output: Self::Output,
+    ) -> napi::Result<Self::JsValue> {
         let js_str = output.map(env::create_string);
         Ok(js_str)
     }
 
     #[cfg(feature = "napi10")]
-    fn resolve(&mut self, env: &'env napi::Env, output: Self::Output) -> napi::Result<Self::JsValue> {
+    fn resolve(
+        &mut self,
+        env: &'env napi::Env,
+        output: Self::Output,
+    ) -> napi::Result<Self::JsValue> {
         // mime strings are guaranteed to be Latin1
-        let js_str = output.map(|s| JsStringLatin1::from_static(env, s).map(JsStringLatin1::into_value)).transpose()?;
+        let js_str = output
+            .map(|s| JsStringLatin1::from_static(env, s).map(JsStringLatin1::into_value))
+            .transpose()?;
         Ok(js_str)
     }
 }

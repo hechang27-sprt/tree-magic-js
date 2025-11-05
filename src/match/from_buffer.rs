@@ -1,4 +1,4 @@
-use napi::{ Task, bindgen_prelude::* };
+use napi::{bindgen_prelude::*, Task};
 use napi_derive::napi;
 use tree_magic_mini::match_u8;
 

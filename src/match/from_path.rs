@@ -1,8 +1,8 @@
 use std::path::PathBuf;
 
-use napi::{ Task, bindgen_prelude::AsyncTask };
+use napi::{bindgen_prelude::AsyncTask, Task};
 use napi_derive::napi;
-use tree_magic_mini::{ match_filepath };
+use tree_magic_mini::match_filepath;
 
 pub struct MatchPath {
     path: String,
