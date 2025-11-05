@@ -6,7 +6,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": {
-        "url": "git+ssh://git@github.com/napi-rs/package-template-pnpm.git",
+        "url": "https://github.com/hechang27-sprt/tree-magic-js",
         "type": "git"
     },
     "license": "MIT",
