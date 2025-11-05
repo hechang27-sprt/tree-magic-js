@@ -1,7 +1,7 @@
 {
     "name": "@hechang27/tree-magic-js",
     "version": "1.1.2",
-    "description": "Template project for writing node package with napi-rs",
+    "description": "Fast MIME type detection for Node.js, powered by Rust",
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -11,12 +11,15 @@
     },
     "license": "MIT",
     "keywords": [
+        "mime",
+        "mimetype",
+        "file-type",
+        "detection",
         "napi-rs",
-        "NAPI",
-        "N-API",
-        "Rust",
-        "node-addon",
-        "node-addon-api"
+        "buffer",
+        "file",
+        "magic",
+        "libmagic"
     ],
     "files": [
         "dist/index.d.ts",
