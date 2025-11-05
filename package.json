@@ -19,8 +19,11 @@
         "node-addon-api"
     ],
     "files": [
-        "index.d.ts",
-        "index.js",
+        "dist/index.d.ts",
+        "dist/index.d.ts.map",
+        "dist/index.js",
+        "dist/index.js.map",
+        "src_ts/index.ts",
         "native/index.d.ts",
         "native/index.js"
     ],
