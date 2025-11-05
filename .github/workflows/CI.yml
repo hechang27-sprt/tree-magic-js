@@ -194,7 +194,7 @@ jobs:
             whoami
             env
             freebsd-version
-            pnpm install
+            pnpm install 
             pnpm build
             rm -rf node_modules
             rm -rf target
@@ -222,7 +222,6 @@ jobs:
             target: aarch64-apple-darwin
             architecture: arm64
         node:
-          - "20"
           - "22"
     runs-on: ${{ matrix.settings.host }}
     steps:
@@ -237,15 +236,13 @@ jobs:
           architecture: ${{ matrix.settings.architecture }}
       - name: Install dependencies
         run: pnpm install
-      - name: Build Native
-        run: pnpm build
       - name: Build TypeScript
         run: pnpm build:ts
       - name: Download artifacts
         uses: actions/download-artifact@v6
         with:
           name: bindings-${{ matrix.settings.target }}
-          path: .
+          path: native
       - name: List packages
         run: ls -R .
         shell: bash
@@ -299,15 +296,13 @@ jobs:
           echo "PNPM_STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
       - name: Install dependencies
         run: pnpm install --force
-      - name: Build Native
-        run: pnpm build
       - name: Build TypeScript
         run: pnpm build:ts
       - name: Download artifacts
         uses: actions/download-artifact@v6
         with:
           name: bindings-${{ matrix.target }}
-          path: .
+          path: native
       - name: List packages
         run: ls -R .
         shell: bash
