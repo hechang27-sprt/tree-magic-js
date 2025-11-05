@@ -1,5 +1,6 @@
 import { createWriteStream } from "node:fs";
 import { access, constants, mkdir } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { buffer } from "node:stream/consumers";
 import yauzl, { Entry } from "yauzl-promise";
@@ -8,7 +9,25 @@ import { limitFunction } from "p-limit";
 import { pipeline } from "node:stream/promises";
 
 import * as native from "../native/index.js";
-import { getDataHome } from "platform-folders";
+
+function getDataHome(): string {
+    // Check XDG_DATA_HOME first (Linux standard)
+    if (process.env.XDG_DATA_HOME) {
+        return process.env.XDG_DATA_HOME;
+    }
+
+    const platform = os.platform();
+    const home = os.homedir();
+
+    switch (platform) {
+        case 'darwin': // macOS
+            return path.join(home, 'Library', 'Application Support');
+        case 'win32': // Windows
+            return process.env.APPDATA || path.join(home, 'AppData', 'Roaming');
+        default: // Linux and others
+            return path.join(home, '.local', 'share');
+    }
+}
 
 const TREE_MAGIC_URL_DEFAULT =
     "https://github.com/hechang27-sprt/build-shared-mime-info/releases/download/db-20251031/mime-database.zip";

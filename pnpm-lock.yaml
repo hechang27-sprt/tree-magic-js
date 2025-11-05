@@ -14,9 +14,6 @@ importers:
       p-limit:
         specifier: ^7.2.0
         version: 7.2.0
-      platform-folders:
-        specifier: ^0.6.1
-        version: 0.6.1
       yauzl-promise:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1515,10 +1512,6 @@ packages:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==, tarball: https://registry.npmjs.org/pirates/-/pirates-4.0.7.tgz}
     engines: {node: '>= 6'}
 
-  platform-folders@0.6.1:
-    resolution: {integrity: sha512-AapKWmRX09cfYv1AjQ4bCeiTcYsJuSIHwLYVqI5fnMrC2Q7ksF5WrcV25RwymUE/x2gdhAMsOLBZcgK6yqLUHQ==, tarball: https://registry.npmjs.org/platform-folders/-/platform-folders-0.6.1.tgz}
-    engines: {node: ^8.16.0 || >=10}
-
   plur@5.1.0:
     resolution: {integrity: sha512-VP/72JeXqak2KiOzjgKtQen5y3IZHn+9GOuLDafPv0eXa47xq0At93XahYBs26MsifCQ4enGKwbjBTKgb9QJXg==, tarball: https://registry.npmjs.org/plur/-/plur-5.1.0.tgz}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -3009,10 +3002,6 @@ snapshots:
   pidtree@0.6.0: {}
 
   pirates@4.0.7: {}
-
-  platform-folders@0.6.1:
-    dependencies:
-      bindings: 1.5.0
 
   plur@5.1.0:
     dependencies:

@@ -112,7 +112,6 @@
     "dependencies": {
         "@rushstack/lookup-by-path": "^0.8.5",
         "p-limit": "^7.2.0",
-        "platform-folders": "^0.6.1",
         "yauzl-promise": "^4.0.0"
     }
 }
