@@ -1,13 +1,13 @@
 # tree-magic-js
 
-Fast and accurate MIME type detection for Node.js, powered by Rust.
+Fast MIME type detection for Node.js, powered by Rust.
 
 [![npm version](https://badge.fury.io/js/%40hechang27%2Ftree-magic-js.svg)](https://www.npmjs.com/package/@hechang27/tree-magic-js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
-`tree-magic-js` is a high-performance MIME type detection library that wraps Rust crate [`tree_magic_mini`](https://crates.io/crates/tree_magic_mini). It can detect file types from both file buffers and file paths.
+`tree-magic-js` is a simple N-API wrapper that wraps Rust crate [`tree_magic_mini`](https://crates.io/crates/tree_magic_mini), which is a high-performance MIME type detection library. It can detect file types from both file buffers and file paths.
 
 ## Installation
 
@@ -167,22 +167,20 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share:/custom/share"
 
 ## How It Works
 
-### Automatic Database Management
-
 On first use, `tree-magic-js` automatically:
 
 1. **Searches for existing MIME databases** in standard system locations:
     - Linux: `/usr/share/mime`, `/usr/local/share/mime`, `~/.local/share/mime`
     - macOS: `/opt/homebrew/share/mime`
-    - Windows: `C:\msys64\mingw64\share\mime`
-      Or uses location provided by `TREE_MAGIC_DIR` if valid
+    - ~~Windows: `C:\msys64\mingw64\share\mime`~~
+
+    Or uses the mime database in provided location if `TREE_MAGIC_DIR` is present and valid
 
 2. **Downloads the database** if not found locally:
     - Downloads from the configured URL (default: [GitHub release](https://github.com/hechang27-sprt/build-shared-mime-info/releases/download/db-20251031/mime-database.zip))
     - Extracts to platform-appropriate data directory and set the `TREE_MAGIC_DIR` to point to that location.
-    - Caches for future use
 
-3. the underlying rust library will either use the MIME databases in system location, or one that is specified by `TREE_MAGIC_DIR`.
+3. The underlying rust library will use the MIME databases specified by `TREE_MAGIC_DIR`, if not present, it will attempt to search one of the system paths. Without the MIME database present, the library can only differentiate between `text/plain` and `binary/octet-stream`.
 
 ## Platform Support
 
@@ -210,23 +208,6 @@ export TREE_MAGIC_DIR="/path/to/custom/mime/db"
 # Or provide a custom download URL
 # default URL is https://github.com/hechang27-sprt/build-shared-mime-info/releases/download/db-20251031/mime-database.zip
 export TREE_MAGIC_URL="https://your-server.com/custom-mime-db.zip"
-```
-
-## Error Handling
-
-```javascript
-import { inferFromPath } from "@hechang27/tree-magic-js";
-
-try {
-    const mimeType = await inferFromPath("./file.txt");
-    if (mimeType) {
-        console.log(`Detected: ${mimeType}`);
-    } else {
-        console.log("File not found");
-    }
-} catch (error) {
-    console.error("Detection failed:", error);
-}
 ```
 
 ## Examples
