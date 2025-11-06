@@ -67,7 +67,9 @@
         "lint": "oxlint",
         "prepublishOnly": "napi prepublish -t npm",
         "test": "ava",
-        "version": "napi version"
+        "version:napi": "napi version",
+        "version:stage": "git add .",
+        "version": "run-s build build:ts version:*"
     },
     "devDependencies": {
         "@emnapi/core": "^1.7.0",
