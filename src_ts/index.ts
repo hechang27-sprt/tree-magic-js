@@ -20,12 +20,12 @@ function getDataHome(): string {
     const home = os.homedir();
 
     switch (platform) {
-        case 'darwin': // macOS
-            return path.join(home, 'Library', 'Application Support');
-        case 'win32': // Windows
-            return process.env.APPDATA || path.join(home, 'AppData', 'Roaming');
+        case "darwin": // macOS
+            return path.join(home, "Library", "Application Support");
+        case "win32": // Windows
+            return process.env.APPDATA || path.join(home, "AppData", "Roaming");
         default: // Linux and others
-            return path.join(home, '.local', 'share');
+            return path.join(home, ".local", "share");
     }
 }
 
@@ -191,6 +191,10 @@ async function init() {
         console.info(
             checkedPaths.map((base) => path.join(base, "mime")).join("\n")
         );
+
+        if (checkedPaths.includes(MINGW_DATA_DIR)) {
+            process.env.TREE_MAGIC_DIR = MINGW_DATA_DIR;
+        }
         return;
     }
 

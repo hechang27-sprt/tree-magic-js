@@ -172,7 +172,7 @@ On first use, `tree-magic-js` automatically:
 1. **Searches for existing MIME databases** in standard system locations:
     - Linux: `/usr/share/mime`, `/usr/local/share/mime`, `~/.local/share/mime`
     - macOS: `/opt/homebrew/share/mime`
-    - ~~Windows: `C:\msys64\mingw64\share\mime`~~
+    - Windows: `C:\msys64\mingw64\share\mime`
 
     Or uses the mime database in provided location if `TREE_MAGIC_DIR` is present and valid
 
